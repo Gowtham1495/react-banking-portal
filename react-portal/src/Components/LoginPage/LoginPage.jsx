@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
 import './login.css'
+import CustomError from '../Error/Error'
 var loginBusiness = require('./loginBusiness');
 var SessionStorageUtil = require('../../Utils/SessionStorageUtil')
 
@@ -70,7 +71,7 @@ class LoginPage extends React.Component {
                     <div className="login-page">
                         <div className="form">
                             <div className="login-form">
-                                <h4 className="logintitle2">{this.state.loginError ? this.state.loginError : 'Login'}</h4>
+                                {this.state.loginError ? <CustomError /> : 'Login'}
                                 <div id="error_msg"></div>
                                 <form id="login-form" action="#" method="POST" onSubmit={this.Login_Function}>
                                     <input type="text" placeholder="Username" id="username" />
