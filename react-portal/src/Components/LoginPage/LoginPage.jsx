@@ -71,7 +71,7 @@ class LoginPage extends React.Component {
                     <div className="login-page">
                         <div className="form">
                             <div className="login-form">
-                                {this.state.loginError ? <CustomError /> : 'Login'}
+                                {this.state.loginError ? <CustomError /> : ''}
                                 <div id="error_msg"></div>
                                 <form id="login-form" action="#" method="POST" onSubmit={this.Login_Function}>
                                     <input type="text" placeholder="Username" id="username" />
