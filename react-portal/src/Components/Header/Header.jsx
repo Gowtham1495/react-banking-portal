@@ -1,11 +1,12 @@
 import React from 'react';
+import CustomButton from '../Button/CustomButton'
 
 
 export default function Header(props) {
     return (
         < header className="header" >
             <div className="userDetail">Hello {props.userName}</div>
-            <button className="formButton" onClick={props.onClick}>Logout</button>
+            <CustomButton onClick={props.onClick} color={'white'}>Logout</CustomButton>            
         </header >
     )
 }
