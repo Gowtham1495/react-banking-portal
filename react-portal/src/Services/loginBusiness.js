@@ -1,5 +1,5 @@
-var webconfig = require('../../Config/config.json')
-var restTemplate = require('../../Utils/restTemplate');
+var webconfig = require('../Config/config.json')
+var restTemplate = require('../Utils/restTemplate');
 
 exports.signOn = (requestBody, callback) => {
     console.log(webconfig.apiendpoint)

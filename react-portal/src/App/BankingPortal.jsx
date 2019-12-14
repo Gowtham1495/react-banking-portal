@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-var RouteNames = require('./Constants/RouteNames')
-var SessionStorageUtil = require('./Utils/SessionStorageUtil')
+var RouteNames = require('../Constants/RouteNames')
+var SessionStorageUtil = require('../Utils/SessionStorageUtil')
 
 export default function BankingPortal() {
     var userLoggedIn = SessionStorageUtil.getItemFromSession('userLoggedIn')

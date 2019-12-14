@@ -13,7 +13,7 @@ exports.makeApiCall = (method, requestBody, formData, queryParams, endPoint, cal
             console.log('error', error);
             console.log('statusCode', httpResponse && httpResponse.statusCode);
             console.log('body', body);
-            if (httpResponse && httpResponse.statusCode == 200) {
+            if (httpResponse && httpResponse.statusCode === 200) {
                 var status = body.status;
                 console.log(status);
                 if (status === 'success') {

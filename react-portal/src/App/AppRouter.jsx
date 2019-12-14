@@ -3,7 +3,7 @@ import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
-import BankingPortal from '../BankingPortal'
+import BankingPortal from '../App/BankingPortal'
 import HomeLayout from '../Layouts/HomeLayout'
 import LoginPage from '../Components/LoginPage/LoginPage'
 
