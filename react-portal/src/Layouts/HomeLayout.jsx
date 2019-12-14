@@ -1,12 +1,12 @@
 import React from 'react';
 import './HomeLayout.css'
 import { Redirect } from 'react-router-dom';
-import Header from '../Header/Header'
-import Sidenav from '../Sidenav/Sidenav'
-import Dashboard from '../MainContent/Dashboard'
-import Accounts from '../MainContent/Account'
-var SessionStorageUtil = require('../../Utils/SessionStorageUtil')
-var RouteNames = require('../../Constants/RouteNames')
+import Header from '../Components/Header/Header'
+import Sidenav from '../Components/Sidenav/Sidenav'
+import Dashboard from '../Components/MainContent/Dashboard'
+import Accounts from '../Components/MainContent/Account'
+var SessionStorageUtil = require('../Utils/SessionStorageUtil')
+var RouteNames = require('../Constants/RouteNames')
 
 
 export default class HomeLayout extends React.Component {

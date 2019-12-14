@@ -36,21 +36,7 @@
   font-size: 14px;
 }
 
-.form button,
-.form .submit {
-  text-transform: uppercase;
-  outline: 0;
-  background: linear-gradient(45deg, #000000 30%, #2C3E50 90%);
-  width: 50%;
-  border-radius: 5px;
-  border: 0;
-  padding: 10px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
+
 
 .form .submit:hover,
 .form .submit:active,

@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
-import Routes from './Constants/Routes'
+import AppRouter from './Config/AppRouter'
 
 export default class App extends React.Component {
   render() {
-    return (
-      <div className="App">
-        <Routes />
-      </div>
-    );
+    return (<AppRouter/>);
   }
 
 }

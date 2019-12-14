@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import './login.css'
 import CustomError from '../Error/Error'
+import CustomButton from '../Button/CustomButton'
 var loginBusiness = require('./loginBusiness');
 var SessionStorageUtil = require('../../Utils/SessionStorageUtil')
 
@@ -76,7 +77,7 @@ class LoginPage extends React.Component {
                                 <form id="login-form" action="#" method="POST" onSubmit={this.Login_Function}>
                                     <input type="text" placeholder="Username" id="username" />
                                     <input type="password" placeholder="Password" id="password" />
-                                    <button className="formButton">Login</button>
+                                    <CustomButton color={'default'} type="submit">Login</CustomButton>
                                 </form>
                             </div>
                         </div>

@@ -4,13 +4,13 @@ import {
     Route
 } from 'react-router-dom';
 import BankingPortal from '../BankingPortal'
-import HomeLayout from '../Components/Layout/HomeLayout'
+import HomeLayout from '../Layouts/HomeLayout'
 import LoginPage from '../Components/LoginPage/LoginPage'
 
-var RouteNames = require('./RouteNames')
+var RouteNames = require('../Constants/RouteNames')
 
 
-export default class Routes extends React.Component {
+export default class AppRouter extends React.Component {
     render() {
         return (
             <Router>
