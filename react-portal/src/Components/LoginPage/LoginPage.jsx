@@ -39,9 +39,10 @@ class LoginPage extends React.Component {
             } else {
                 console.log("redirect");
                 SessionStorageUtil.storeItemsInSesssion('userLoggedIn', true)
+                SessionStorageUtil.storeItemsInSesssion('userName', formData.userName)
                 this.setState({
                     userLoggedIn: true,
-                    userName: formData.username
+                    userName: formData.userName
                 });
             }
         });
@@ -58,10 +59,11 @@ class LoginPage extends React.Component {
             return <Redirect
                 to={{
                     pathname: "/dashboard",
-                    state: { userName: 'Gowtham' }
+                    state: { userName: SessionStorageUtil.getItemFromSession('userName') }
                 }}
             />
         } else {
+            console.log('login')
             return (
 
                 <div className="loginContainer" id="loginpage">

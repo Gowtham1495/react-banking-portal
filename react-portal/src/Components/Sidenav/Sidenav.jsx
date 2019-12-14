@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+var SessionStorageUtil = require('../../Utils/SessionStorageUtil')
 
 
 export default function Sidenav(props) {
+    var userName = SessionStorageUtil.getItemFromSession('userLoggedIn');
     return (
         <aside className="sidenav">
             <ul className="sidenav__list">
@@ -10,7 +12,7 @@ export default function Sidenav(props) {
                     <NavLink style={{ textDecoration: 'none', color: 'White' }}
                         to={{
                             pathname: "/dashboard",
-                            state: { userName: 'Gowtham' }
+                            state: { userName: userName }
                         }}>Dashboard
                 </NavLink>
                 </li>
@@ -18,7 +20,7 @@ export default function Sidenav(props) {
                     <NavLink style={{ textDecoration: 'none', color: 'White' }}
                         to={{
                             pathname: "/accounts",
-                            state: { userName: 'Gowtham' }
+                            state: { userName: userName }
                         }}>Accounts
                     </NavLink>
                 </li>
@@ -26,7 +28,7 @@ export default function Sidenav(props) {
                     <NavLink style={{ textDecoration: 'none', color: 'White' }}
                         to={{
                             pathname: "/transfers",
-                            state: { userName: 'Gowtham' }
+                            state: { userName: userName }
                         }}>Transfers
                 </NavLink>
                 </li>
@@ -34,7 +36,7 @@ export default function Sidenav(props) {
                     <NavLink style={{ textDecoration: 'none', color: 'White' }}
                         to={{
                             pathname: "/locations",
-                            state: { userName: 'Gowtham' }
+                            state: { userName: userName }
                         }}>Locations
                     </NavLink>
                 </li>

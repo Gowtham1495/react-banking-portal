@@ -1,20 +1,28 @@
-var RouteNames = require('../Constants/RouteNames')
-
-import BankingPortal from '../App/BankingPortal'
 import HomeLayout from '../Layouts/HomeLayout'
 import LoginPage from '../Components/LoginPage/LoginPage'
+import Dashboard from '../Components/MainContent/Dashboard'
+import Accounts from '../Components/MainContent/Account'
+var RouteNames = require('../Constants/RouteNames')
 
-export const routes = [
-    {
-      path: RouteNames.LANDING,
-      component: BankingPortal
-    },
+const routesMap = [
     {
       path: RouteNames.LOGIN,
-      component: LoginPage
+      component: LoginPage,
+      mainContent: ''
     },
     {
         path: RouteNames.DASHBOARD,
-        component: HomeLayout
+        component: HomeLayout,
+        mainContent: Dashboard
+
+      },
+      {
+        path: RouteNames.ACCOUNTS,
+        component: HomeLayout,
+        mainContent: Accounts
+
       }
+
   ];
+
+export default routesMap;

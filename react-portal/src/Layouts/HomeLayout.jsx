@@ -26,19 +26,15 @@ export default class HomeLayout extends React.Component {
         })
     }
     render() {
-        const components = {
-            Dashboard: Dashboard,
-            Accounts: Accounts
-        };
+        var userName=SessionStorageUtil.getItemFromSession('userName')
         var userLoggedIn = this.state.userLoggedIn;
-        console.log('mainContent', this.props.mainContent)
-        const MainContent = components[this.props.mainContent];
+        const MainContent = this.props.mainContent
+        
         return (
-
             <div>
                 {userLoggedIn ?
                     <div className="grid-container">
-                        <Header userName={this.props.location.state.userName} onClick={this.handleLogout} />
+                        <Header userName={userName} onClick={this.handleLogout} />
                         <Sidenav />
                         <MainContent />
                         <footer className="footer"></footer>
