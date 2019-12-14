@@ -5,7 +5,7 @@ import {
     Switch
 } from 'react-router-dom';
 import HomeLayout from '../Layouts/HomeLayout'
-import routeMaps from './Routes'
+import routesMap from './Routes'
 
 var RouteNames = require('../Constants/RouteNames')
 
@@ -16,7 +16,7 @@ export default class AppRouter extends React.Component {
             <Router>
                 <Switch>
                 <Route exact path={RouteNames.LANDING} render={(routeProps) => <HomeLayout {...routeProps} mainContent='Dashboard'/>} />
-                {routeMaps.map((route, i) => (
+                {routesMap.map((route, i) => (
                     <RouteWithSubRoutes key={i} {...route} />
                 ))}
                 </Switch>          
@@ -30,7 +30,6 @@ function RouteWithSubRoutes(route) {
       <Route
         path={route.path}
         render={props => (
-          // pass the sub-routes down to keep nesting
           <route.component {...props} routes={route.routes} mainContent={route.mainContent}/>
         )}
       />
