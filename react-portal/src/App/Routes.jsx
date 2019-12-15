@@ -1,7 +1,8 @@
-import HomeLayout from '../Layouts/HomeLayout'
-import LoginPage from '../Components/LoginPage/LoginPage'
-import Dashboard from '../Components/MainContent/Dashboard'
-import Accounts from '../Components/MainContent/Account'
+import React from 'react'
+const HomeLayout =React.lazy(() => import('../Layouts/HomeLayout'));
+const LoginPage = React.lazy(() => import('../Components/LoginPage/LoginPage'));
+const Dashboard = React.lazy(() => import('../Components/MainContent/Dashboard'));
+const Accounts = React.lazy(() => import('../Components/MainContent/Account'));
 var RouteNames = require('../Constants/RouteNames')
 
 const routesMap = [

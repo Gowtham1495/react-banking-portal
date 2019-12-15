@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import {
     BrowserRouter as Router,
     Route,
@@ -14,12 +14,14 @@ export default class AppRouter extends React.Component {
     render() {
         return (
             <Router>
-                <Switch>
-                <Route exact path={RouteNames.LANDING} render={(routeProps) => <HomeLayout {...routeProps} mainContent='Dashboard'/>} />
-                {routesMap.map((route, i) => (
-                    <RouteWithSubRoutes key={i} {...route} />
-                ))}
-                </Switch>          
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
+                    <Route exact path={RouteNames.LANDING} render={(routeProps) => <HomeLayout {...routeProps} mainContent='Dashboard'/>} />
+                    {routesMap.map((route, i) => (
+                        <RouteWithSubRoutes key={i} {...route} />
+                    ))}
+                    </Switch>
+                </Suspense>         
             </Router>
         )
     }

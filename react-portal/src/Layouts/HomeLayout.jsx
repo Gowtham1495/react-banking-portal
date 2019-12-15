@@ -1,4 +1,5 @@
 import React from 'react';
+import {Suspense} from 'react'
 import './HomeLayout.css'
 import { Redirect } from 'react-router-dom';
 import Header from '../Components/Header/Header'
@@ -18,7 +19,9 @@ export default class HomeLayout extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
         console.log('inside dashboard', SessionStorageUtil.getItemFromSession('userLoggedIn'))
     }
-
+    componentDidMount(){
+        
+    }
     handleLogout() {
         sessionStorage.clear();
         this.setState({
@@ -36,7 +39,10 @@ export default class HomeLayout extends React.Component {
                     <div className="grid-container">
                         <Header userName={userName} onClick={this.handleLogout} />
                         <Sidenav />
-                        <MainContent />
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <MainContent />
+                        </Suspense>
+                        
                         <footer className="footer"></footer>
                     </div > : <Redirect to={RouteNames.LOGIN} />}
             </div>

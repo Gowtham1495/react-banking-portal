@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+var accountService = require('../../Services/AccountsService');
+
+export const Accounts = ()=> {
 
 
-export default function Accounts(props) {
-    return (
+    const [accounts , setAccounts] = useState();
+    const [error , setError] = useState(false);
+    useEffect(() => {
+        accountService.getAccounts((err, resp) => {
+            if (err) {
+                console.log(JSON.stringify(err.stack));
+                console.log(err.message);
+                if (err.message && err.message !== '') {
+                   setError(true);
+                }
+            } else {
+                setAccounts(resp);
+            }
+        });
+    });
+
+    return accounts ? (
+        
         <main className="main">
             <div className="main-overview">
                 <div className="overviewcard">
@@ -39,5 +58,8 @@ export default function Accounts(props) {
                 </div>
             </div>
         </main>
-    )
+    ) : ''
 }
+
+
+export default Accounts
