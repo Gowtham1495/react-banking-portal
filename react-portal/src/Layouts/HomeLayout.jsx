@@ -3,7 +3,8 @@ import {Suspense} from 'react'
 import './HomeLayout.css'
 import { Redirect } from 'react-router-dom';
 import Header from '../Components/Header/Header'
-import Sidenav from '../Components/Sidenav/Sidenav'
+import Sidenav from '../Components/Sidenav/Sidenav';
+const Loading = React.lazy(() => import('../Components/Loading/Loading'));
 var SessionStorageUtil = require('../Utils/SessionStorageUtil')
 var RouteNames = require('../Constants/RouteNames')
 
@@ -37,7 +38,7 @@ export default class HomeLayout extends React.Component {
                     <div className="grid-container">
                         <Header userName={userName} onClick={this.handleLogout} />
                         <Sidenav />
-                        <Suspense fallback={<div></div>}>
+                        <Suspense fallback={<Loading/>}>
                             <MainContent />
                         </Suspense>
                         

@@ -1,4 +1,5 @@
 import React, { useState, useEffect , memo } from "react";
+const Loading = React.lazy(() => import('../Loading/Loading'));
 var accountService = require('../../Services/AccountsService');
 
 export const Accounts = ()=> {
@@ -30,7 +31,7 @@ export const Accounts = ()=> {
                 ))}
             </div>
         </main>
-    ) : ''
+    ) : <Loading/>
 }
 
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect ,memo} from "react";
 var accountService = require('../../Services/AccountsService');
+const Loading = React.lazy(() => import('../Loading/Loading'));
 
 export const Dashboard = ()=> {
 
@@ -31,7 +32,7 @@ export const Dashboard = ()=> {
                 ))}
             </div>
         </main>
-    ) : ''
+    ) : <Loading/>
 }
 
 
