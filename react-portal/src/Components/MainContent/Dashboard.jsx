@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect ,memo} from "react";
+var accountService = require('../../Services/AccountsService');
+
+export const Dashboard = ()=> {
 
 
-export default function Dashboard(props) {
-    return (
+    const [accounts , setAccounts] = useState();
+    const [error , setError] = useState(false);
+    useEffect(() => {
+        accountService.getAccounts((err, resp) => {
+            if (err) {
+                console.log(JSON.stringify(err.stack));
+                console.log(err.message);
+                if (err.message && err.message !== '') {
+                   setError(true);
+                }
+            } else {
+                setAccounts(resp);
+            }
+        });
+    },[]);
+
+    return accounts ? (
         <main className="main">
             <div className="main-overview">
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Checking Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Loan Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Savings Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Mortgage Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
+                {accounts.accountList.map((account , i)=>(
+                    <div key={i} className="overviewcard">
+                            <div className="overviewcard__icon">{account.nickName}</div>
+                            <div className="overviewcard__info">{account.availableBalanceDisp.availBalValue}</div>
+                    </div>
+                ))}
             </div>
         </main>
-    )
+    ) : ''
 }
+
+
+export default memo(Dashboard);

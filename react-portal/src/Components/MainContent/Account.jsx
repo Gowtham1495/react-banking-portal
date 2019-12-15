@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , memo } from "react";
 var accountService = require('../../Services/AccountsService');
 
 export const Accounts = ()=> {
@@ -18,48 +18,20 @@ export const Accounts = ()=> {
                 setAccounts(resp);
             }
         });
-    });
-
+    },[]);
     return accounts ? (
-        
         <main className="main">
             <div className="main-overview">
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Checking Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Loan Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Savings Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Mortgage Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Checking Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Loan Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Savings Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
-                <div className="overviewcard">
-                    <div className="overviewcard__icon">Mortgage Acc</div>
-                    <div className="overviewcard__info">$26,000</div>
-                </div>
+                {accounts.accountList.map((account , i)=>(
+                    <div key={i} className="overviewcard">
+                            <div className="overviewcard__icon">{account.nickName}</div>
+                            <div className="overviewcard__info">{account.availableBalanceDisp.availBalValue}</div>
+                    </div>
+                ))}
             </div>
         </main>
     ) : ''
 }
 
 
-export default Accounts
+export default memo(Accounts)

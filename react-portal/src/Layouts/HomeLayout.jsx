@@ -4,8 +4,6 @@ import './HomeLayout.css'
 import { Redirect } from 'react-router-dom';
 import Header from '../Components/Header/Header'
 import Sidenav from '../Components/Sidenav/Sidenav'
-import Dashboard from '../Components/MainContent/Dashboard'
-import Accounts from '../Components/MainContent/Account'
 var SessionStorageUtil = require('../Utils/SessionStorageUtil')
 var RouteNames = require('../Constants/RouteNames')
 
@@ -20,7 +18,7 @@ export default class HomeLayout extends React.Component {
         console.log('inside dashboard', SessionStorageUtil.getItemFromSession('userLoggedIn'))
     }
     componentDidMount(){
-        
+
     }
     handleLogout() {
         sessionStorage.clear();
@@ -39,7 +37,7 @@ export default class HomeLayout extends React.Component {
                     <div className="grid-container">
                         <Header userName={userName} onClick={this.handleLogout} />
                         <Sidenav />
-                        <Suspense fallback={<div>Loading...</div>}>
+                        <Suspense fallback={<div></div>}>
                             <MainContent />
                         </Suspense>
                         

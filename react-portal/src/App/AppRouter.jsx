@@ -14,7 +14,7 @@ export default class AppRouter extends React.Component {
     render() {
         return (
             <Router>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div></div>}>
                     <Switch>
                     <Route exact path={RouteNames.LANDING} render={(routeProps) => <HomeLayout {...routeProps} mainContent='Dashboard'/>} />
                     {routesMap.map((route, i) => (
