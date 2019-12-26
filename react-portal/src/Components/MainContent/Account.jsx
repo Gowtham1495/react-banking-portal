@@ -1,4 +1,6 @@
 import React, { useState, useEffect , memo } from "react";
+import './Account.css'
+import SimpleSelect from '../CustomDropdown/Select'
 const Loading = React.lazy(() => import('../Loading/Loading'));
 var accountService = require('../../Services/AccountsService');
 
@@ -20,18 +22,14 @@ export const Accounts = ()=> {
             }
         });
     },[]);
-    return accounts ? (
-        <main className="main">
-            <div className="main-overview">
-                {accounts.accountList.map((account , i)=>(
-                    <div key={i} className="overviewcard">
-                            <div className="overviewcard__icon">{account.nickName}</div>
-                            <div className="overviewcard__info">{account.availableBalanceDisp.availBalValue}</div>
-                    </div>
-                ))}
+    console.log("resp",accounts)
+    return accounts?(
+        <div className="grid-container-account">
+            <div className="dropdown">
+                <SimpleSelect accountsResp={accounts}/>
             </div>
-        </main>
-    ) : <Loading/>
+            <div className="transactions"></div>
+    </div>):<Loading/>
 }
 
 

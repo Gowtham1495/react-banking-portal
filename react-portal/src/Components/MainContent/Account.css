@@ -1,0 +1,41 @@
+.grid-container-account {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas:
+        "dropdown"
+        "transactions";
+    height: 100vh;
+}
+
+.dropdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    /* Where the magic happens */
+    grid-auto-rows: 84px;
+    grid-gap: 20px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
+        0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.transactions {
+    grid-area: transactions;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
+        0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.overviewcard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
+        0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    background-color: whitesmoke 
+}
